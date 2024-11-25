@@ -1,12 +1,13 @@
 function gerarAleatorios(quantidade) {
+    const geracoes = [];
     const numeros = Array.from({ length: 60 }, (_, i) => i + 1);
-    const resultado = [];
 
-    for (let i = 0; i < quantidade; i++) {
-        const indice = Math.floor(Math.random() * numeros.length);
-        resultado.push(...numeros.splice(indice, 1));
+    while (geracoes.length < quantidade) {
+        const indiceAleatorio = Math.floor(Math.random() * numeros.length);
+        const aleatorio = numeros.splice(indiceAleatorio, 1)[0];
+        geracoes.push(aleatorio);
     }
 
-    return resultado;
+    console.log(`Gerações (${geracoes.length} números): ${geracoes.join(", ")}`);
+    console.log(`Finais (${geracoes.length} números): ${geracoes.join(", ")}`);
 }
-
