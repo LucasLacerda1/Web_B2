@@ -50,7 +50,7 @@ function gerarAleatorios() {
 ```javascript
 function gerarAleatorios(quantidade) {
     const geracoes = [];
-    const numeros = Array.from({ length: 60 }, (_, i) => i + 1); // Vetor de 1 a 60
+    const numeros = Array.from({ length: 60 }, (_, i) => i + 1);
 
     while (geracoes.length < quantidade) {
         const indiceAleatorio = Math.floor(Math.random() * numeros.length);
