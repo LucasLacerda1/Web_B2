@@ -1,20 +1,12 @@
 function gerarAleatorios(quantidade) {
-    const geracoes = [];
-    const vetor = new Set();
+    const numeros = Array.from({ length: 60 }, (_, i) => i + 1);
+    const resultado = [];
 
-    while (vetor.size < quantidade) {
-        const aleatorio = Math.floor(Math.random() * 60) + 1;
-        geracoes.push(aleatorio);
-        vetor.add(aleatorio);
+    for (let i = 0; i < quantidade; i++) {
+        const indice = Math.floor(Math.random() * numeros.length);
+        resultado.push(...numeros.splice(indice, 1));
     }
 
-    const resultArray = Array.from(vetor);
-    console.log(`Gerações (${geracoes.length} números): ${geracoes.join(", ")}`);
-    console.log(`Finais (${resultArray.length} números): ${resultArray.join(", ")}`);
+    return resultado;
 }
 
-function main(quantidade) {
-    console.time("Tempo de execução");
-    gerarAleatorios(quantidade);
-    console.timeEnd("Tempo de execução");
-}
